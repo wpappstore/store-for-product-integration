@@ -65,6 +65,12 @@ class Tribe_WP_App_Store_Integration extends Tribe_WP_App_Store {
             WPAPPSTORE.CLIENT_BASE_URL = '" . addslashes( $this->get_base_url() ) . "';
             WPAPPSTORE.CLIENT_INSTALL_URL = '" . addslashes( $this->get_client_install_url() ) . "';
         ";
+
+        // Here you can pass a custom variable through the purchase process,
+        // to be received in the sale postback
+        $this->output['head_js'] .= "
+            WPAPPSTORE.SP_CUSTOM = 'purplemonkey';
+        ";
     }
     
     function admin_menu() {
